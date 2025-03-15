@@ -1,0 +1,19 @@
+{
+  "name": "clou-drop",
+  "version": "1.0.0",
+  "description": "it is a app for hosting files",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Debjit",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^2.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
