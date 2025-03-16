@@ -8,10 +8,25 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors(
+    {
+        origin: process.env.Frontend_URL || 'http://localhost:5173',
+        credentials: true
+    }
+))
 
-app.use(router)
+app.use('/api', router)
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
-})
+app.get('/', (req, res) => {
+    res.json({ message: 'CloudDrop API is running' });
+});
+
+
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
+
+export default app;

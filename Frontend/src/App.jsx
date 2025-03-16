@@ -22,6 +22,8 @@ const App = () => {
     }
   });
 
+  const API_URL = 'https://clouddrop-backend.vercel.app/api'|| 'http://localhost:3000/api';
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(fileUrl);
@@ -43,7 +45,7 @@ const App = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:3000/upload', formData, {
+      const response = await axios.post(`${API_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
